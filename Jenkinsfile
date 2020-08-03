@@ -10,6 +10,9 @@ pipeline {
             }
         }
         stage('Test') {
+            environment {
+                BOOKS_ENVIORMENT = 'dev'
+            }
             steps {
                 sh './gradlew test'
             }
