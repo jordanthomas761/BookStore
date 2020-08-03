@@ -11,7 +11,9 @@ import java.math.BigDecimal;
 @Data
 @Entity
 public class Book {
-    private @Id @GeneratedValue Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String title;
     private String author;
     private BigDecimal price;

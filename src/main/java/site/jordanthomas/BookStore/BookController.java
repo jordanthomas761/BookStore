@@ -25,7 +25,7 @@ public class BookController {
         this.assembler = assembler;
     }
 
-    @GetMapping("/books")
+    @GetMapping(value={"/books", "/"})
     CollectionModel<EntityModel<Book>> all(){
         List<EntityModel<Book>> books = repository.findAll().stream()
                 .map(assembler::toModel)
