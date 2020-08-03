@@ -21,6 +21,10 @@ build/
 *.ipr
 out/
 
+
+### Mac OS ###
+.DS_Store
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
