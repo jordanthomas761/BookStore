@@ -38,6 +38,7 @@ dependencies {
 }
 
 test {
+	environment "BOOKS_ENV", "dev"
 	useJUnitPlatform()
 }
 
