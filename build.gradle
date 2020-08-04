@@ -38,7 +38,7 @@ dependencies {
 }
 
 test {
-	environment "BOOKS_ENV", "dev"
+	environment "BOOKS_ENVIORMENT", "dev"
 	useJUnitPlatform()
 }
 
