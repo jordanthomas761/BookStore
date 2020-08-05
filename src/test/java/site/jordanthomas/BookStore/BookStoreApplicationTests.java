@@ -61,4 +61,15 @@ class BookStoreApplicationTests {
 				.andExpect(status().isCreated())
 				.andReturn();
 	}
+
+	@Test
+	public void replaceBook() throws Exception {
+		String newBook = "{\"title\":\"Dreamcast\",\"author\":\"Sega\",\"price\":199.99}";
+		mockMvc.perform(MockMvcRequestBuilders.put("/books/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(newBook)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated())
+				.andReturn();
+	}
 }
