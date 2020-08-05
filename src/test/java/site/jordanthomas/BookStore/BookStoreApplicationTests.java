@@ -42,4 +42,12 @@ class BookStoreApplicationTests {
 				.andExpect(status().isOk())
 				.andReturn();
 	}
+
+	@Test
+	public void returnsNotFoundForInvalidSingleBook() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/books/5")
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNotFound())
+				.andReturn();
+	}
 }
