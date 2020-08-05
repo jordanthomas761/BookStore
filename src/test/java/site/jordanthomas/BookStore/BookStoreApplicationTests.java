@@ -72,4 +72,12 @@ class BookStoreApplicationTests {
 				.andExpect(status().isCreated())
 				.andReturn();
 	}
+
+	@Test
+	public void deleteBook() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.delete("/books/1")
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNoContent())
+				.andReturn();
+	}
 }
