@@ -2,7 +2,6 @@ import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 
 plugins {
 	id 'java'
-	id 'war'
 	id 'com.palantir.docker' version '0.25.0'
 	id 'com.palantir.docker-run' version '0.25.0'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
