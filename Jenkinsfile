@@ -29,6 +29,9 @@ pipeline {
             }
         }
         stage('Deploy Stage') {
+            environment {
+                BOOKS_ENVIRONMENT = 'stage'
+            }
             steps {
                 sh './gradlew dockerRun -Pargs=18081'
             }
