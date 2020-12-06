@@ -37,7 +37,7 @@ pipeline {
             }
             steps {
                 sh './gradlew dockerStop'
-                sh './gradlew dockerRun -Pargs=18081'
+                sh './gradlew dockerRun -Pport=18081'
             }
         }
     }
