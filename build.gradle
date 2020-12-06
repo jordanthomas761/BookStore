@@ -56,11 +56,10 @@ docker {
 }
 
 dockerRun () {
+	name project.name
 	if (project.hasProperty("args")) {
-		name project.name + project.getProperty("args")
 		ports project.getProperty("args") + ':8080'
 	} else {
-		name project.name
 		ports '8080:8080'
 	}
 	image imageName
