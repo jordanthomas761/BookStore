@@ -55,10 +55,15 @@ docker {
 	buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
 }
 
-dockerRun {
-	name project.name
+dockerRun () {
+	if (project.hasProperty("args")) {
+		name project.name + project.getProperty("args")
+		ports project.getProperty("args") + ':8080'
+	} else {
+		name project.name
+		ports '8080:8080'
+	}
 	image imageName
-	ports '8081:8080'
 	clean true
 	arguments '-v', '//var/run/docker.sock:/var/run/docker.sock'
 }

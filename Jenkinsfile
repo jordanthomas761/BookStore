@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy Stage') {
             steps {
-                sh './gradlew dockerRun'
+                sh './gradlew dockerRun -Pargs=18081'
             }
         }
     }
