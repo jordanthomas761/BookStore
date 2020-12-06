@@ -58,7 +58,7 @@ docker {
 dockerRun {
 	name project.name
 	image imageName
-	ports '8080:8080'
+	ports '8081:8080'
 	clean true
 	arguments '-v', '//var/run/docker.sock:/var/run/docker.sock'
 }
