@@ -30,11 +30,13 @@ pipeline {
         }
         stage('Deploy Stage') {
             environment {
+                STAGE_CRED = credentials('stage-credentials')
                 BOOKS_ENVIRONMENT = 'stage'
-                MYSQL_USERNAME='testbook'
-                MYSQL_PASSWORD='xGf2wII0SH3Nks8m#'
+                MYSQL_USERNAME = STAGE_CRED_USR
+                MYSQL_PASSWORD = STAGE_CRED_PWD
             }
             steps {
+                sh './gradlew dockerStop'
                 sh './gradlew dockerRun -Pargs=18081'
             }
         }
