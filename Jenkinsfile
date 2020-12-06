@@ -28,5 +28,10 @@ pipeline {
                 sh './gradlew dockerPush'
             }
         }
+        stage('Deploy Stage') {
+            steps {
+                sh './gradlew dockerRun'
+            }
+        }
     }
 }
