@@ -48,6 +48,7 @@ test {
 
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'jordanthomas761'
 String imageName = "${dockerHubUsernameProperty}/book-store:$version"
+String hostedZoneNameProperty = findProperty('hostedZoneName')
 
 docker {
 	name imageName
@@ -77,7 +78,8 @@ cloudFormation {
 			SubnetID: findProperty('subnetId') ?: '',
 			ServiceName: project.name,
 			ServiceVersion: project.version,
-			DockerHubUsername: dockerHubUsernameProperty
+			DockerHubUsername: dockerHubUsernameProperty,
+			HostedZoneName : hostedZoneNameProperty
 	])
 	templateFile project.file("ecs.yml")
 }
