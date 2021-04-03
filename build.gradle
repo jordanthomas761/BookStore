@@ -63,7 +63,9 @@ dockerRun () {
 	} else {
 		ports '8080:8080'
 	}
-	env 'BOOKS_ENVIRONMENT': "${System.env.BOOKS_ENVIRONMENT}", 'MYSQL_USERNAME': "${System.env.MYSQL_USERNAME}", 'MYSQL_PASSWORD': "${System.env.MYSQL_PASSWORD}"
+	if(project.hasProperty("username") && project.hasProperty("password")) {
+		env 'BOOKS_ENVIRONMENT': "${System.env.BOOKS_ENVIRONMENT}", 'MYSQL_USERNAME': "${project.getProperty("username")}", 'MYSQL_PASSWORD': "${project.getProperty("password")}"
+	}
 	image imageName
 	clean true
 	arguments '-v', '//var/run/docker.sock:/var/run/docker.sock'
