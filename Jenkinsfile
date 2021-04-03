@@ -37,18 +37,18 @@ pipeline {
             }
             steps {
                 sh './gradlew dockerStop'
-                sh './gradlew dockerRun -Pport=18080 -e BOOKS_ENVIRONMENT -e MYSQL_USERNAME -e MYSQL_PASSWORD'
+                sh './gradlew dockerRun -Pport=18080'
             }
         }
-        stage('Deploy to AWS') {
-            environment {
-                DOCKER_HUB_LOGIN = credentials('docker-hub')
-            }
-            steps {
-                withAWS(credentials: 'aws-credentials', region: env.AWS_REGION){
-                    sh './gradlew awsCfnMigrateStack awsCfnWaitStackComplete -PsubnetId=$SUBNET_ID -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR -Pregion=$AWS_REGION -PhostedZoneName=jordanthomas.site'
-                }
-            }
-        }
+//         stage('Deploy to AWS') {
+//             environment {
+//                 DOCKER_HUB_LOGIN = credentials('docker-hub')
+//             }
+//             steps {
+//                 withAWS(credentials: 'aws-credentials', region: env.AWS_REGION){
+//                     sh './gradlew awsCfnMigrateStack awsCfnWaitStackComplete -PsubnetId=$SUBNET_ID -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR -Pregion=$AWS_REGION -PhostedZoneName=jordanthomas.site'
+//                 }
+//             }
+//         }
     }
 }
