@@ -37,7 +37,7 @@ pipeline {
             }
             steps {
                 sh './gradlew dockerStop'
-                sh './gradlew dockerRun -Pport=18080'
+                sh './gradlew dockerRun -Pport=18080 -e BOOKS_ENVIRONMENT -e MYSQL_USERNAME -e MYSQL_PASSWORD'
             }
         }
         stage('Deploy to AWS') {
