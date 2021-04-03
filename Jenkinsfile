@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy Stage') {
             environment {
                 STAGE_CRED = credentials('stage-credentials')
-                BOOKS_ENVIRONMENT = 'stage'
+                BOOKS_ENVIRONMENT = 'dev'
                 MYSQL_USERNAME = '${STAGE_CRED_USR}'
                 MYSQL_PASSWORD = '${STAGE_CRED_PWD}'
             }
