@@ -32,12 +32,12 @@ pipeline {
             environment {
                 STAGE_CRED = credentials('stage-credentials')
                 BOOKS_ENVIRONMENT = 'stage'
-                MYSQL_USERNAME = '$STAGE_CRED_USR'
-                MYSQL_PASSWORD = '$STAGE_CRED_PWD'
+                MYSQL_USERNAME = '${STAGE_CRED_USR}'
+                MYSQL_PASSWORD = '${STAGE_CRED_PWD}'
             }
             steps {
                 sh './gradlew dockerStop'
-                sh './gradlew dockerRun -Pport=18080 -PbooksEnvironment=$BOOKS_ENVIRONMENT -PmysqlUsername=$MYSQL_USERNAME -PmysqlPassword=$MYSQL_PASSWORD'
+                sh './gradlew dockerRun -Pport=18080'
             }
         }
 //         stage('Deploy to AWS') {
