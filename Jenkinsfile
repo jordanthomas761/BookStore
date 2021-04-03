@@ -35,7 +35,7 @@ pipeline {
             }
             steps {
                 sh './gradlew dockerStop'
-                sh './gradlew dockerRun -Pport=18080 -Dusername=$STAGE_CRED_USR -Dpassword=$STAGE_CRED_PSW'
+                sh './gradlew dockerRun -Pport=18080 -Pusername=$STAGE_CRED_USR -Ppassword=$STAGE_CRED_PSW'
             }
         }
 //         stage('Deploy to AWS') {
