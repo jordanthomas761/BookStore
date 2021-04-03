@@ -64,7 +64,7 @@ dockerRun () {
 		ports '8080:8080'
 	}
 	if(project.hasProperty("username") && project.hasProperty("password")) {
-		env 'BOOKS_ENVIRONMENT': "${System.env.BOOKS_ENVIRONMENT}", 'MYSQL_USERNAME': "${project.getProperty("username")}", 'MYSQL_PASSWORD': "${project.getProperty("password")}"
+		env 'MYSQL_HOST': "${System.env.MYSQL_HOST}",  'BOOKS_ENVIRONMENT': "${System.env.BOOKS_ENVIRONMENT}", 'MYSQL_USERNAME': "${project.getProperty("username")}", 'MYSQL_PASSWORD': "${project.getProperty("password")}"
 	}
 	image imageName
 	clean true
