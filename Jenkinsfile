@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy Stage') {
             environment {
                 STAGE_CRED = credentials('stage-credentials')
-                BOOKS_ENVIRONMENT = 'dev'
+                BOOKS_ENVIRONMENT = 'stage'
             }
             steps {
                 sh './gradlew dockerStop'
