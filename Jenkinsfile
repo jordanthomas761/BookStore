@@ -32,8 +32,8 @@ pipeline {
             environment {
                 STAGE_CRED = credentials('stage-credentials')
                 BOOKS_ENVIRONMENT = 'dev'
-                MYSQL_USERNAME = $STAGE_CRED_USR
-                MYSQL_PASSWORD = $STAGE_CRED_PSW
+                MYSQL_USERNAME = '$STAGE_CRED_USR'
+                MYSQL_PASSWORD = '$STAGE_CRED_PSW'
             }
             steps {
                 sh './gradlew dockerStop'
