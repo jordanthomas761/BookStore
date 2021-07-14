@@ -5,17 +5,17 @@ metadata:
   namespace: default
 spec:
   replicas: 1
-    selector:
-      matchLabels:
-        bookstore: web
-    template:
-      metadata:
-        labels:
-          booktore: web
-      spec:
-        containers:
-          - name: bookstore
-            image: jordanthomas761/book-store
+  selector:
+    matchLabels:
+      bookstore: web
+  template:
+    metadata:
+      labels:
+        booktore: web
+    spec:
+      containers:
+        - name: bookstore
+          image: jordanthomas761/book-store
 ---
 apiVersion: v1
 kind: Service
