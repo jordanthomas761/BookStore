@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstore
+  namespace: default
+spec:
+  replicas: 1
+    selector:
+      matchLabels:
+        bookstore: web
+    template:
+      metadata:
+        labels:
+          booktore: web
+      spec:
+        containers:
+          - name: bookstore
+            image: jordanthomas761/book-store
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookstore-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30001
